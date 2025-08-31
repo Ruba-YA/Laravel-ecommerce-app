@@ -29,6 +29,7 @@
       <input type="number" name="product_price" id="" placeholder="Enter Product Price">
         <br>
       <br>
+      <input type="file" name="product_image" id="">
 <select name="product_category" id="">
     <option value="" selected disabled >Select Category</option>
     @foreach($categories as $category)

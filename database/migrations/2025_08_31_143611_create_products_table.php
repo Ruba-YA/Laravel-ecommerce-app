@@ -18,6 +18,7 @@ return new class extends Migration
                         $table->integer('product_quntity')->default(0);
 
             $table->decimal('product_price', 8, 2);
+            $table->string('product_image')->nullable();
             $table->string('product_category')->nullable();
 
             $table->timestamps();
