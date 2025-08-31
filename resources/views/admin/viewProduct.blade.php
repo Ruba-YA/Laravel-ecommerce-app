@@ -40,6 +40,7 @@
                 <td><a href="{{ route('admin.editProduct' , $product->id) }}" class="btn btn-primary">Edit</a></td>
             </tr>
             @endforeach
+            {{ $products->links() }}
         </tbody>
     </table>
 
