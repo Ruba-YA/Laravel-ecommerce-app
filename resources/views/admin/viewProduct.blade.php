@@ -29,7 +29,7 @@
             <tr>
                 <td>{{ $product->id }}</td>
                 <td>{{ $product->product_title }}</td>
-                <td>{{ $product->product_description }}</td>
+                <td>{{ Str::limit($product->product_description  , 20)}}</td>
                 <td>{{ $product->product_quntity }}</td>
                 <td>{{ $product->product_price }}</td>
                 <td>{{ $product->product_category }}</td>

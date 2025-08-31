@@ -10,7 +10,7 @@
 @endif
 <div class="container-fluid">
     <h2>Add Product</h2>
-    <form  method="POST" action="{{ route('admin.postaddProduct') }}" enctype="multipart/form-data">
+    <form  method="POST" action="{{ route('admin.updateProduct' , $product->id) }}" enctype="multipart/form-data">
         @csrf
       <input  type="text" name="product_title" id="" placeholder="Enter Product Name" value="{{ $product->product_title }}">
       <br>
