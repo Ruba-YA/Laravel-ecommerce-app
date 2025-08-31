@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Admin Dashboard </title>
+    <base href="/public">
+
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -120,7 +122,7 @@
                       <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Products </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="{{ route('admin.addProduct') }}">Add Product</a></li>
-                    <li><a href="#">View Product</a></li>
+                    <li><a href="{{ route('admin.viewProduct') }}">View Product</a></li>
                     <li><a href="#">View Order</a></li>
                   </ul>
                 </li>
@@ -140,6 +142,8 @@
         @yield('viewCategory') 
         @yield('updateCategory')
         @yield('addProduct')
+        @yield('viewProduct')
+        @yield('updateProduct')
         </section>
        
         <footer class="footer">

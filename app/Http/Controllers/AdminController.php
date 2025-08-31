@@ -65,7 +65,7 @@ class AdminController extends Controller
         $product->product_price = $request->input('product_price');
         $product->product_description = $request->input('product_description');
         $product->product_quntity = $request->input('product_quntity');
-        
+
         if ($request->hasFile('product_image')) {
             $file      = $request->file('product_image');
             $filename  = time() . '.' . $file->getClientOriginalExtension();
@@ -77,5 +77,47 @@ class AdminController extends Controller
         $product->save();
 
         return redirect()->back()->with('success', 'Product added successfully!');
+    }
+
+    public function viewProduct(){
+        $products = Product::all();
+        return view('admin.viewProduct', compact('products'));
+    }
+    public function deleteProduct($id)
+    {
+        $product = Product::find($id);
+        if (! $product) {
+            return redirect()->back()->with('error', 'Product not found!');
+        }
+        $product->delete();
+
+        return redirect()->back()->with('success', 'Product deleted successfully!');
+    }
+    public function editProduct($id)
+    {
+        $product = Product::find($id);
+        $categories = Category::all();
+
+        return view('admin.updateProduct', compact('product','categories'));
+    }
+    public function updateProduct(Request $request, $id)
+    {
+        $product = Product::find($id);
+        $product->product_title = $request->input('product_title');
+        $product->product_price = $request->input('product_price');
+        $product->product_description = $request->input('product_description');
+        $product->product_quntity = $request->input('product_quntity');
+
+        if ($request->hasFile('product_image')) {
+            $file      = $request->file('product_image');
+            $filename  = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('uploads/products/', $filename);
+            $product->product_image = $filename;
+        }
+        $product->product_category = $request
+            ->input('product_category');
+        $product->save();
+
+        return redirect()->back()->with('success', 'Product updated successfully!');
     }
 }
