@@ -25,6 +25,10 @@ Route::get('/addCategory', [AdminController::class, 'addCategory'])->name('admin
 Route::post('/addCategory', [AdminController::class, 'postaddCategory'])->name('admin.postaddCategory');
 Route::get('/viewCategory', [AdminController::class, 'viewCategory'])->name('admin.viewCategory');
 Route::get('/deleteCategory/{id}', [AdminController::class, 'deleteCategory'])->name('admin.deleteCategory');
+Route::get('/editCategory/{id}', [AdminController::class, 'editCategory'])->name('admin.editCategory');
+Route::post('/editCategory/{id}', [AdminController::class, 'updateCategory'])->name('admin.updateCategory');
+Route::get('/addProduct', [AdminController::class, 'addProduct'])->name('admin.addProduct');
+Route::post('/addProduct', [AdminController::class, 'postaddProduct'])->name('admin.postaddProduct');
 });
 
 require __DIR__.'/auth.php';

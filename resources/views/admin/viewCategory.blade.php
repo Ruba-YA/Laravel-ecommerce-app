@@ -27,7 +27,7 @@
                 <td>{{ $category->created_at }}</td>
                 <td>{{ $category->updated_at }}</td>
                 <td><a href="{{ route('admin.deleteCategory' ,$category->id ) }}" onclick="return confirm('Are U Sure ')" class="btn btn-danger">Delete</a></td>
-                <td><a href="" class="btn btn-primary">Edit</a></td>
+                <td><a href="{{ route('admin.editCategory' , $category->id) }}" class="btn btn-primary">Edit</a></td>
             </tr>
             @endforeach
         </tbody>
