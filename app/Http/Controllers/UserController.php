@@ -25,4 +25,14 @@ class UserController extends Controller
     ]
     );
     }
+
+    public function productDetails($id)
+    {
+        $product = Product::find($id);
+        return view('productDetails' , 
+    [
+        'product' => $product
+    ]
+    );
+    }   
 }

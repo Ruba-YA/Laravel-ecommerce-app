@@ -5,8 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 Route::get('/', [UserController::class , 'home'])->name('index');
-
-
+Route::get('/product/details/{id}', [UserController::class , 'productDetails'])->name('product.details');
 
 Route::get('/dashboard', [UserController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
 

@@ -126,7 +126,14 @@ class AdminController extends Controller
             'product_title',
             'LIKE',
             '%' . $request->search . '%'
-        )->paginate(4);
+        )->
+            orWhere(
+                'product_description',
+                'LIKE',
+                '%' . $request->search . '%'
+            )
+        
+        ->paginate(4);
         
 
         return view('admin.viewProduct', compact('products'));
