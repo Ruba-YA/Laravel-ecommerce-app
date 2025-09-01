@@ -80,7 +80,7 @@ class AdminController extends Controller
     }
 
     public function viewProduct(){
-        $products = Product::paginate(1);
+        $products = Product::paginate(4);
         return view('admin.viewProduct', compact('products'));
     }
     public function deleteProduct($id)
@@ -120,4 +120,15 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Product updated successfully!');
     }
+    public function searchProduct(Request $request)
+    {
+        $products = Product::where(
+            'product_title',
+            'LIKE',
+            '%' . $request->search . '%'
+        )->paginate(4);
+        
+
+        return view('admin.viewProduct', compact('products'));
+    }       
 }

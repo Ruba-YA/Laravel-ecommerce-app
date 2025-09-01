@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -13,5 +14,15 @@ class UserController extends Controller
         } else if (Auth::check() &&   Auth::user()->user_type == 'user') {
             return view('dashboard');
         }
+    }
+
+    public function home()
+    {
+        $product = Product::all();
+        return view('index' , 
+    [
+        'product' => $product
+    ]
+    );
     }
 }

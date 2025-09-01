@@ -4,9 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', [UserController::class , 'home'])->name('index');
 
 
 
@@ -33,6 +31,9 @@ Route::get('/viewProduct', [AdminController::class, 'viewProduct'])->name('admin
 Route::get('/deleteProduct/{id}', [AdminController::class, 'deleteProduct'])->name('admin.deleteProduct');
 Route::get('/editProduct/{id}', [AdminController::class, 'editProduct'])->name('admin.editProduct');
 Route::post('/editProduct/{id}', [AdminController::class, 'updateProduct'])->name('admin.updateProduct');
+Route::post('/searchProduct', [AdminController::class, 'searchProduct'])->name('admin.searchProduct');
+
+
 });
 
 require __DIR__.'/auth.php';

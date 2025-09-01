@@ -6,6 +6,15 @@
         {{ session('success') }}
     </div>  
 @endif
+                  <div class="listing-search d-none d-lg-block">
+ <form id="searchForm" action="{{ route('admin.searchProduct') }}" method="Post">
+    @csrf
+              <div class="form-group">
+                <input type="search" name="search" placeholder="What are you searching for...">
+                <button type="submit" class="submit">Search</button>
+              </div>
+            </form>
+</div>
 <div class="container-fluid">
     <h2>View Products</h2>
     <table class="table">
