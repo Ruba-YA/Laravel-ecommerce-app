@@ -8,7 +8,7 @@ Route::get('/', [UserController::class , 'home'])->name('index');
 Route::get('/product/details/{id}', [UserController::class , 'productDetails'])->name('product.details');
 Route::get('/allProduct', [UserController::class , 'allProduct'])->name('allProduct');  
 Route::get('/dashboard', [UserController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::post('/addToCart', [UserController::class, 'addToCart'])->name('addToCart');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

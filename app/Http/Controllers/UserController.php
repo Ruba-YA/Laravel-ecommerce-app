@@ -45,4 +45,8 @@ class UserController extends Controller
     ]
     );
     }
+    public function addToCart()
+    {
+        return "Add to Cart";
+    }
 }
