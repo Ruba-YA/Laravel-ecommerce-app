@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function home()
     {
-        $product = Product::all();
+        $product = Product::latest()->take(4)->get();
         return view('index' , 
     [
         'product' => $product
@@ -35,4 +35,14 @@ class UserController extends Controller
     ]
     );
     }   
+
+    public function allProduct()
+    {
+        $products = Product::all();
+        return view('allProduct' , 
+    [
+        'products' => $products
+    ]
+    );
+    }
 }

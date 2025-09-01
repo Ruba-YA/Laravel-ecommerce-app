@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 Route::get('/', [UserController::class , 'home'])->name('index');
 Route::get('/product/details/{id}', [UserController::class , 'productDetails'])->name('product.details');
-
+Route::get('/allProduct', [UserController::class , 'allProduct'])->name('allProduct');  
 Route::get('/dashboard', [UserController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
