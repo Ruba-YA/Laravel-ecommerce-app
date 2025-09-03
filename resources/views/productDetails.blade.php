@@ -1,3 +1,10 @@
+@if (session('success'))
+    <div style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; max-width: 700px; margin: 20px auto; text-align: center;">
+        {{ session('success') }}
+    </div>
+
+@endif
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,7 +128,7 @@
     <p class="category">Category: {{ $product->product_category }}</p>
     <img src="/uploads/products/{{ $product->product_image }}" alt="{{ $product->product_title }}">
     
-    <form action="{{ route('addToCart') }}" method="POST">
+    <form action="{{ route('addToCart' , $product->id) }}" method="POST">
       @csrf
       <button type="submit" class="btn-add">Add to Cart</button>
     </form>
