@@ -10,7 +10,7 @@ Route::get('/allProduct', [UserController::class , 'allProduct'])->name('allProd
 Route::get('/showCart', [UserController::class , 'showCart'])->name('showCart');
 Route::get('/dashboard', [UserController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::post('/addToCart/{id}', [UserController::class, 'addToCart'])->middleware(['auth', 'verified'])->name('addToCart');
-
+Route::get('/removeProduct/{id}' , [UserController::class , 'removeProduct'])->name('removeProduct');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

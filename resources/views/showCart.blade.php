@@ -48,6 +48,7 @@
                               <th>Price</th>
                               <th>Quantity</th>
                               <th>Total</th>
+                              <th>Remove Product</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -58,6 +59,7 @@
                               <td>${{ $item->product->product_price }}</td>
                               <td>{{ $item->quantity }}</td>
                               <td>${{ $item->product->product_price * $item->quantity }}</td>
+                              <td class="btn btn-danger"><a href="{{ route("removeProduct" , $item->id) }}"> Remove</a></td>
                           </tr>
                           @endforeach
                       </tbody>
