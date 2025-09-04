@@ -19,31 +19,40 @@ class UserController extends Controller
 
     public function home()
     {
+        if(Auth::check()){
+            $count = Cart::where('user_id', Auth::id())->count();
+        }
+        else{
+            $count = 0;
+        }
         $product = Product::latest()->take(4)->get();
-        return view('index' , 
-    [
-        'product' => $product
-    ]
+        return view('index' , compact('product' , 'count')
     );
     }
 
     public function productDetails($id)
     {
+        if(Auth::check()){
+            $count = Cart::where('user_id', Auth::id())->count();
+        }
+        else{
+            $count = 0;
+        }
         $product = Product::find($id);
-        return view('productDetails' , 
-    [
-        'product' => $product
-    ]
+        return view('productDetails' , compact('product' , 'count')
     );
     }   
 
     public function allProduct()
     {
+        if(Auth::check()){
+            $count = Cart::where('user_id', Auth::id())->count();
+        }
+        else{
+            $count = 0;
+        }
         $products = Product::all();
-        return view('allProduct' , 
-    [
-        'products' => $products
-    ]
+        return view('allProduct' , compact('products' , 'count')
     );
     }
     public function addToCart($id)
