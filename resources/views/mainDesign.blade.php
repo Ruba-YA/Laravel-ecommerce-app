@@ -93,7 +93,7 @@
               </span>
             </a>
               @endif
-            <a href="">
+            <a href="{{ route('showCart') }}">
               <i class="fa fa-shopping-bag" aria-hidden="true">{{ $count }}</i>
             </a>
             <form class="form-inline ">
@@ -113,7 +113,7 @@
 
 @yield('home')
 @yield('allProducts')
-
+@yield('showCart')
      <!-- footer section -->
     <footer class=" footer_section">
       <div class="container">
